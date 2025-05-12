@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.clock-face {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 15px solid #ff9800;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hour-hand, .minute-hand, .second-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    border-radius: 10px;
+}
+
+.hour-hand {
+    width: 70px;
+    height: 10px;
+    background-color: #333;
+    transform: translate(0, -50%) rotate(90deg);
+    z-index: 7;
+}
+
+.minute-hand {
+    width: 100px;
+    height: 6px;
+    background-color: #666;
+    transform: translate(0, -50%) rotate(90deg);
+    z-index: 8;
+}
+
+.second-hand {
+    width: 110px;
+    height: 3px;
+    background-color: #ff5722;
+    transform: translate(0, -50%) rotate(90deg);
+    z-index: 9;
+}
+
+.clock-numbers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.number {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.number-12 {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.number-3 {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.number-6 {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.number-9 {
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.digital-clock {
+    background-color: #fff;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 3px solid #4caf50;
+}
+
+.time {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 18px;
+    color: #666;
+}
+
+/* 添加卡通元素 */
+.clock-face::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #ff9800;
+    border-radius: 50% 50% 0 0;
+}
+
+.clock-face::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #ff9800;
+    border-radius: 0 0 50% 50%;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.digital-clock {
+    animation: bounce 3s ease-in-out infinite;
+}
